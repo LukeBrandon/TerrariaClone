@@ -5,6 +5,8 @@ import Terraria.src.game.Controller;
 import Terraria.src.game.Model;
 
 import javax.swing.JFrame;
+
+import java.awt.Color;
 import java.awt.Toolkit;
 
 public class Game extends JFrame {
@@ -24,6 +26,7 @@ public class Game extends JFrame {
         this.getContentPane().add(view);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setVisible(true);
+        this.setBackground(Color.black);
         view.addMouseListener(controller);
         this.addKeyListener(controller);
     }

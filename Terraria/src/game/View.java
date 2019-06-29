@@ -18,6 +18,9 @@ public class View extends JPanel {
 
     // --------------------Paint Component------------------------------
     public void paintComponent(Graphics g) {
+        super.paintComponent(g);
+        g.setColor(Color.black);
+        g.fillRect(-5000, -5000, 10000, 10000);
         g.drawImage(backgroundImage, model.backgroundX, -326, null);
 
         // draw all sprites

@@ -1,6 +1,7 @@
 package Terraria.src.game;
 
-import Terraria.src.tools.*;
+import Terraria.src.items.tools.*;
+import Terraria.src.items.acessories.*;
 import Terraria.src.sprite.*;
 
 import java.util.ArrayList;
@@ -13,6 +14,7 @@ import java.awt.Graphics;
 public class Model {
     Player player; // only instance of mario, instantiated in the unmarshall from JSON file
     Tool equipped;
+
     static BufferedImage backgroundImage = null;
 
     ArrayList<Sprite> sprites;
@@ -23,19 +25,19 @@ public class Model {
     public Model() {
         sprites = new ArrayList<Sprite>();
         sprites.add(player = new Player(this));
-        equipped = new Pickaxe(this);
+        equipped = new Pickaxe("Demonite Pickaxe", this);
         generateFloor();
 
         // lazy load background image
-        if (backgroundImage == null) {
-            try {
-                backgroundImage = ImageIO.read(new File("Terraria/src/images/background.png"));
-            } catch (IOException e) {
-                System.out.println("Failed to load background image // " + e);
-            }
-        }
+        // if (backgroundImage == null) {
+        // try {
+        // backgroundImage = ImageIO.read(new
+        // File("Terraria/src/images/background.png"));
+        // } catch (IOException e) {
+        // System.out.println("Failed to load background image // " + e);
+        // }
+        // }
 
-        sprites.add(new Block(0, 0, 10, 10, this));
         backgroundX = 0;
         cameraPos = 10;
     }// end of model constuctor
@@ -78,10 +80,14 @@ public class Model {
     }
 
     void generateFloor() {
+        int w = 40;
+        int h = 40;
         for (int i = -100; i < 100; i++) {
-            Block block = new Block(i * 40, 500, 40, 40, this);
-            sprites.add(block);
+            for (int j = 0; j < 10; j++) {
+                Block block = new Block(i * 40, (500 + (j * h)), w, h, this);
+                sprites.add(block);
+            }
         }
     }
 
-}
+} // end model class

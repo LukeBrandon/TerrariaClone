@@ -38,16 +38,16 @@ public class Controller implements ActionListener, MouseListener, KeyListener {
     // Key listener implementation
     public void keyPressed(KeyEvent e) {
         switch (e.getKeyCode()) {
-        case KeyEvent.VK_RIGHT:
+        case KeyEvent.VK_D:
             keyRight = true;
             break;
-        case KeyEvent.VK_LEFT:
+        case KeyEvent.VK_A:
             keyLeft = true;
             break;
-        case KeyEvent.VK_UP:
+        case KeyEvent.VK_W:
             keyUp = true;
             break;
-        case KeyEvent.VK_DOWN:
+        case KeyEvent.VK_S:
             keyDown = true;
             break;
         case KeyEvent.VK_SPACE:
@@ -62,16 +62,16 @@ public class Controller implements ActionListener, MouseListener, KeyListener {
 
     public void keyReleased(KeyEvent e) {
         switch (e.getKeyCode()) {
-        case KeyEvent.VK_RIGHT:
+        case KeyEvent.VK_D:
             keyRight = false;
             break;
-        case KeyEvent.VK_LEFT:
+        case KeyEvent.VK_A:
             keyLeft = false;
             break;
-        case KeyEvent.VK_UP:
+        case KeyEvent.VK_W:
             keyUp = false;
             break;
-        case KeyEvent.VK_DOWN:
+        case KeyEvent.VK_S:
             keyDown = false;
             break;
         case KeyEvent.VK_SPACE:

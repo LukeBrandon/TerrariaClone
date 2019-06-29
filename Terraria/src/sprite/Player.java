@@ -37,7 +37,6 @@ public class Player extends Sprite {
 
     @Override
     public void update(ArrayList<Sprite> sprites) {
-        String direction;
 
         // accelelerates downwards
         vertVel += 1.3;
