@@ -10,7 +10,7 @@ import java.util.ArrayList;
 public abstract class Sprite {
     // member variables
     public int xPos;
-    int yPos;
+    public int yPos;
     int prevX;
     int prevY;
     int width;
@@ -26,7 +26,7 @@ public abstract class Sprite {
     public abstract void update(ArrayList<Sprite> sprites);
 
     // -------------Identity Methods-----------------
-    public boolean isABrick() {
+    public boolean isABlock() {
         return false;
     }
 

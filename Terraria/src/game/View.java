@@ -21,12 +21,15 @@ public class View extends JPanel {
         super.paintComponent(g);
         g.setColor(Color.black);
         g.fillRect(-5000, -5000, 10000, 10000);
-        g.drawImage(backgroundImage, model.backgroundX, -326, null);
+        g.drawImage(model.backgroundImage, model.backgroundX, -300, null);
 
         // draw all sprites
         for (int i = 0; i < model.sprites.size(); i++) {
             model.sprites.get(i).draw(g, model);
         }
+
+        // draw the world;
+        this.model.world.draw(g);
 
     }
 }

@@ -30,8 +30,8 @@ public class Block extends Sprite {
     public void update(ArrayList<Sprite> sprites) {
     }
 
-    public boolean isABrick() {
+    public boolean isABlock() {
         return true;
     }
 
-}// end of Brick class
+}

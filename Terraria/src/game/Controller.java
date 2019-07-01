@@ -90,10 +90,10 @@ public class Controller implements ActionListener, MouseListener, KeyListener {
     public void mousePressed(MouseEvent e) {
         // if left mouse button presed, then place regular brick
         if (e.getButton() == MouseEvent.BUTTON1) {
-            model.equipped.use(e.getX(), e.getY());
-            // if righ tmouse button pressed, place coin block
+            model.player.equipped.use(e.getX(), e.getY());
+
         } else if (e.getButton() == MouseEvent.BUTTON3) {
-            // placeCoinBlock(e.getX(), e.getY());
+
         } else
             System.out.println("other mouse button pressed");
     }
@@ -101,7 +101,7 @@ public class Controller implements ActionListener, MouseListener, KeyListener {
     public void mouseReleased(MouseEvent e) {
         // if its the left mouse button then regular brick
         if (e.getButton() == MouseEvent.BUTTON1)
-            model.equipped.stopUse();
+            model.player.equipped.stopUse();
     }
 
     public void mouseEntered(MouseEvent e) {
@@ -132,6 +132,9 @@ public class Controller implements ActionListener, MouseListener, KeyListener {
         }
         if (keySpace) {
             hasBeenPressed.add(hasBeenPressed.size(), "space");
+        }
+        if (keyE) {
+            model.player.inventory.print();
         }
 
         // checking and executing jumping buffer
