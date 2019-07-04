@@ -21,7 +21,7 @@ public class View extends JPanel {
         super.paintComponent(g);
         g.setColor(Color.black);
         g.fillRect(-5000, -5000, 10000, 10000);
-        g.drawImage(model.backgroundImage, model.backgroundX, -300, null);
+        g.drawImage(model.backgroundImage, model.backgroundX, model.backgroundY, null);
 
         // draw all sprites
         for (int i = 0; i < model.sprites.size(); i++) {

@@ -21,8 +21,9 @@ public class Block extends Sprite {
 
     @Override
     public void draw(Graphics g, Model model) {
-        g.setColor(new Color(255, 255, 255));
-        g.drawRect(xPos - model.cameraPos, yPos, width, height); // drawing bricks while subtracting camera position
+        g.setColor(Color.green);
+        g.fillRect(xPos - model.cameraPos, yPos - model.cameraPosY, width, height); // drawing bricks while subtracting
+                                                                                    // camera position
     }
 
     // update method

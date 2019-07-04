@@ -39,7 +39,7 @@ public class Player extends Sprite {
 
     @Override
     public void draw(Graphics g, Model model) {
-        g.drawImage(playerImage, this.xPos - model.cameraPos, this.yPos, null);
+        g.drawImage(playerImage, this.xPos - model.cameraPos, this.yPos - model.cameraPosY, null);
     }
 
     @Override
