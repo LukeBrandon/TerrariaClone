@@ -1,4 +1,4 @@
-package Terraria.src.sprite;
+package Terraria.src.sprite.blocks;
 
 import Terraria.src.game.Model;
 import Terraria.src.sprite.*;
@@ -12,18 +12,14 @@ public class Block extends Sprite {
     Model model;
 
     public Block(int xtemp, int ytemp, int wtemp, int htemp, Model m) {
-        xPos = xtemp;
-        yPos = ytemp;
-        width = wtemp;
-        height = htemp;
-        model = m;
+        super(xtemp, ytemp, wtemp, htemp);
     }
 
     @Override
     public void draw(Graphics g, Model model) {
-        g.setColor(Color.green);
-        g.fillRect(xPos - model.cameraPos, yPos - model.cameraPosY, width, height); // drawing bricks while subtracting
-                                                                                    // camera position
+        g.fillRect(xPos - model.cameraPos, yPos - model.cameraPosY, this.width, this.height); // drawing bricks while
+                                                                                              // subtracting
+        // camera position
     }
 
     // update method
@@ -33,6 +29,14 @@ public class Block extends Sprite {
 
     public boolean isABlock() {
         return true;
+    }
+
+    public boolean pickaxeMine() {
+        return false;
+    }
+
+    public boolean axeMine() {
+        return false;
     }
 
 }

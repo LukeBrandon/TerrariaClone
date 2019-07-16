@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 import Terraria.src.game.*;
 import Terraria.src.sprite.*;
+import Terraria.src.sprite.blocks.*;
 
 public class World {
     public final int WORLD_WIDTH = 1000;
@@ -32,8 +33,12 @@ public class World {
             for (int y = 0; y < WORLD_DEPTH; y++) {
                 int xToDraw = (x * BLOCK_WIDTH) - (HALF_WORLD_WIDTH * BLOCK_WIDTH);
                 int yToDraw = (y * BLOCK_HEIGHT);
-                if (y > 18)
-                    world[x][y] = new Block(xToDraw, yToDraw, BLOCK_WIDTH, BLOCK_HEIGHT, this.model);
+
+                double rand = Math.random();
+                if (y > 18 && rand > .5)
+                    world[x][y] = new WoodBlock(xToDraw, yToDraw, BLOCK_WIDTH, BLOCK_HEIGHT, this.model);
+                else if (y > 18 && rand < .5)
+                    world[x][y] = new StoneBlock(xToDraw, yToDraw, BLOCK_WIDTH, BLOCK_HEIGHT, this.model);
                 else
                     world[x][y] = null;
             }
@@ -51,7 +56,6 @@ public class World {
     }
 
     public void breakBlock(int x, int y) {
-        System.out.println("breaking block at x: " + x + " // y: " + y);
         world[x][y] = null;
     }
 

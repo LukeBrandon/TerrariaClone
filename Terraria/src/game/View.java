@@ -30,6 +30,7 @@ public class View extends JPanel {
 
         // draw the world;
         this.model.world.draw(g);
+        this.model.player.inventory.draw(g);
 
     }
 }

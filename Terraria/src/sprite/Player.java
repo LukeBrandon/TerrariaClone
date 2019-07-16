@@ -1,8 +1,10 @@
 package Terraria.src.sprite;
 
 import Terraria.src.game.*;
-import Terraria.src.items.tools.*;
 import Terraria.src.ui.inventory.Inventory;
+import Terraria.src.items.*;
+import Terraria.src.items.tools.*;
+import Terraria.src.sprite.blocks.*;
 
 import java.util.ArrayList;
 import java.awt.Graphics;
@@ -14,25 +16,28 @@ import java.awt.Image;
 import java.util.ArrayList;
 
 public class Player extends Sprite {
-    static Image[] rightPlayerImages = null;
     static Image[] leftPlayerImages = null;
-    Image playerImage = null;
-    int marioCounter;
-    Model model;
+    static Image[] rightPlayerImages = null;
+
+    private Model model;
+    private Image playerImage = null;
+
+    public Item equipped;
     public Inventory inventory;
-    public Tool equipped;
+    public int marioCounter;
+
+    public String equippedString; // testing purposes
 
     public Player(Model m) {
+        // x, y , w, h
+        super(300, 0, 60, 95);
         this.inventory = new Inventory();
-        yPos = 300; // should drop onto the ground some
-        xPos = 0;
-        width = 60;
-        height = 95;
         model = m;
 
-        this.equipped = new Pickaxe("Demonite Pickaxe", this.model);
-        this.inventory.add(0, 0, this.equipped);
-        this.inventory.add(1, 0, this.equipped);
+        this.inventory.add(0, 0, new Hammer("Steel Hammer", this.model));
+        this.inventory.add(1, 0, new Axe("Wooden Axe", this.model));
+        this.inventory.add(2, 0, new Pickaxe("Hellstone Pickaxe", this.model));
+        this.equipped = this.inventory.inventory[0][0];
 
         lazyLoad();
     }
@@ -82,9 +87,7 @@ public class Player extends Sprite {
         }
     }
 
-    void lazyLoad() {
-        // lazy loading mario Images
-        if (rightPlayerImages == null) {
+    void lazyLoad() { // lazy loading mario Images if (rightPlayerImages == null) {
             rightPlayerImages = new Image[5];
             try {
                 rightPlayerImages[0] = ImageIO.read(new File("Terraria/images/mario1.png"));
