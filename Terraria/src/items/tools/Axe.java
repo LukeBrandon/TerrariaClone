@@ -3,17 +3,17 @@ package Terraria.src.items.tools;
 import Terraria.src.game.*;
 import Terraria.src.sprite.blocks.*;
 
-public class Pickaxe extends Tool {
+public class Axe extends Tool {
 
-    public Pickaxe(Model m) {
+    public Axe(Model m) {
         super(m);
     }
 
-    public Pickaxe(String name, Model m) {
+    public Axe(String name, Model m) {
         super(name, m);
     }
 
-    public boolean isPickaxe() {
+    public boolean isAxe() {
         return true;
     }
 
@@ -25,7 +25,7 @@ public class Pickaxe extends Tool {
             return;
         }
 
-        if (isWithinReach(x, y) && thisBlock.pickaxeMine()) {
+        if (isWithinReach(x, y) && thisBlock.axeMine()) {
             this.model.world.breakBlock(x, y);
         }
     }

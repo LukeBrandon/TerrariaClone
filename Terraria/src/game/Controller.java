@@ -57,6 +57,25 @@ public class Controller implements ActionListener, MouseListener, KeyListener {
         case KeyEvent.VK_E:
             keyE = true;
             break;
+        // number keys
+        case KeyEvent.VK_1:
+            this.model.player.equipped = this.model.player.inventory.getItem(0, 0);
+            this.model.player.inventory.setEquipped(0, 0);
+            System.out.println("You just equipped " + this.model.player.equipped.getName());
+            break;
+        case KeyEvent.VK_2:
+            this.model.player.equipped = this.model.player.inventory.getItem(1, 0);
+            this.model.player.inventory.setEquipped(1, 0);
+            System.out.println("You just equipped " + this.model.player.equipped.getName());
+            break;
+        case KeyEvent.VK_3:
+            this.model.player.equipped = this.model.player.inventory.getItem(2, 0);
+            this.model.player.inventory.setEquipped(2, 0);
+            System.out.println("You just equipped " + this.model.player.equipped.getName());
+            break;
+        // inventory keys
+        case KeyEvent.VK_ESCAPE:
+            this.model.player.inventory.toggleOpen();
         }
     }
 
@@ -90,8 +109,11 @@ public class Controller implements ActionListener, MouseListener, KeyListener {
     public void mousePressed(MouseEvent e) {
         // if left mouse button presed, then place regular brick
         if (e.getButton() == MouseEvent.BUTTON1) {
-            model.player.equipped.use(e.getX(), e.getY());
+            int x = (e.getX() + model.cameraPos + (model.world.HALF_WORLD_WIDTH * model.world.BLOCK_WIDTH))
+                    / this.model.world.BLOCK_WIDTH;
+            int y = (e.getY() + model.cameraPosY) / this.model.world.BLOCK_HEIGHT;
 
+            model.player.equipped.use(x, y);
         } else if (e.getButton() == MouseEvent.BUTTON3) {
 
         } else

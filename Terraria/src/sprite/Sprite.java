@@ -11,14 +11,18 @@ public abstract class Sprite {
     // member variables
     public int xPos;
     public int yPos;
-    int prevX;
-    int prevY;
-    int width;
-    int height;
+    public int prevX;
+    public int prevY;
+    public int width;
+    public int height;
     public int lastTouchCounter;
     public double vertVel;
 
-    Sprite() {
+    public Sprite(int x, int y, int w, int h) {
+        this.xPos = x;
+        this.yPos = y;
+        this.width = w;
+        this.height = h;
     }
 
     public abstract void draw(Graphics g, Model model);
