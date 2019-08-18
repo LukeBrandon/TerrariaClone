@@ -57,7 +57,6 @@ public class Inventory {
 
     public void draw(Graphics g) {
         if (this.open) {
-            for (int y = 0; y < INVENTORY_HEIGHT; y++) {
                 for (int x = 0; x < INVENTORY_WIDTH; x++) {
                     int xDraw = (INVENTORY_SQUARE_WIDTH * x) + (INVENTORY_PADDING * (x + 1)); // +1 side padding
                     int yDraw = (INVENTORY_SQUARE_HEIGHT * y) + (INVENTORY_PADDING * (y + 1));
